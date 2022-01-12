@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
+import SideBar from "./components/Side/SideBar";
 
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
@@ -13,6 +14,7 @@ import OrderHistory from "./pages/OrderHistory";
 import Success from './pages/Success'
 import { Provider } from 'react-redux';
 import store from './redux/store';
+// import SearchMovies from './pages/SearchMovies';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -30,12 +32,15 @@ const client = new ApolloClient({
 
 function App() {
   return (
+
     <ApolloProvider client={client}>
       <Router>
         <div>
           <Provider store={store}>
           <Nav />
+          <SideBar/>
           <Switch>
+          {/* <Route exact path='/' component={SearchMovies} /> */}
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />

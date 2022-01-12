@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { MdLocalMovies} from 'react-icons/md';
 
 function Nav() {
 
@@ -10,7 +11,7 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/orderHistory">
-              Order History
+              Previous Orders
             </Link>
           </li>
           <li className="mx-1">
@@ -44,7 +45,7 @@ function Nav() {
       <h1>
         <Link to="/">
           <span role="img" aria-label="shopping bag"></span>
-          BlockFlix
+          Block<MdLocalMovies/>Flix
         </Link>
       </h1>
 

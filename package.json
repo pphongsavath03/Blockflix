@@ -2,7 +2,7 @@
   "name": "mern-shopping",
   "version": "1.0.0",
   "description": "",
-  "main":"node server/server.js",
+  "main": "node server/server.js",
   "engines": {
     "node": "14.x"
   },
@@ -24,6 +24,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "if-env": "^1.0.4",
+    "materialize-css": "^1.0.0-rc.2",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "serve": "^13.0.2"

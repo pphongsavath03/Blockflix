@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { FiShoppingCart} from 'react-icons/fi';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import './style.css';
@@ -81,7 +82,7 @@ const Cart = () => {
             <div className="cart-closed" onClick={toggleCart}>
               <span
                 role="img"
-                aria-label="trash">🛒</span>
+                aria-label="trash"><FiShoppingCart/></span>
             </div>
           );
     }
@@ -126,7 +127,7 @@ const Cart = () => {
               Checkout
             </button>
             :
-            <span>(log in to check out)</span>
+            <span>You Must Log In to Proceed</span>
         }
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
+import CategoryMenu from "../CategoryMenu/index";
 
 
 //import react pro sidebar components
@@ -54,17 +54,15 @@ const SideBar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
-              <MenuItem icon={<FaList />}>Category</MenuItem>
+              <MenuItem icon={<FaList />}><CategoryMenu/></MenuItem>
               <MenuItem icon={<FaRegHeart />}>Favourite</MenuItem>
               <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
-              <MenuItem icon={<VscSignOut />}><a href="/" onClick={() => Auth.logout()}>
-            logout</a>
-              </MenuItem>
+              <MenuItem icon={<VscSignOut />}>logout</MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

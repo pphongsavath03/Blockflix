@@ -55,15 +55,15 @@ const SideBar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
-              <MenuItem icon={<AiFillFire />}><Link to="/Search">Movie Sale</Link></MenuItem>
-              <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
+              <MenuItem active={true} icon={<FiHome />}><a href="/"></a>Home</MenuItem>
+              <MenuItem icon={<AiFillFire />}><Link to="/Search"></Link>Movie Sale</MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/orderHistory"></Link>Order History</MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<BsPencilSquare />}><Link to="/signup">Signup</Link></MenuItem>
-              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}>Logout</a></MenuItem>
+              <MenuItem icon={<BsPencilSquare />}><Link to="/signup"></Link>Signup</MenuItem>
+              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

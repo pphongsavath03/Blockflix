@@ -74,7 +74,7 @@ db.once('open', async () => {
       name: 'Harry Potter and the Deathly Hallows: Part 2 (2011)',
       category: categories[2]._id,
       description:
-        'With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and "Rhodey" Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy.',
+        'Harry, Ron, and Hermione search for the remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.',
       image: 'HPDH2.jpg',
       price: 9.99,
       quantity: 6
@@ -83,12 +83,39 @@ db.once('open', async () => {
       name: 'Harry Potter and the Prisoner of Azkaban (2004)',
       category: categories[2]._id,
       description:
-        'With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and "Rhodey" Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy.',
+        'Harry Potter, Ron and Hermione return to Hogwarts School of Witchcraft and Wizardry for their third year of study, where they delve into the mystery surrounding an escaped prisoner who poses a dangerous threat to the young wizard.',
       image: 'HPPoA.jpg',
       price: 9.99,
       quantity: 5
     },
     {
+      name: 'The Matrix (1999)',
+      category: categories[4]._id,
+      description:
+      'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.',
+      image: 'The_Matrix_digital_release_cover.jpg',
+      price: 11.99,
+      quantity: 15
+    },
+    {
+      name: 'The Matrix Reloaded (2003)',
+      category: categories[4]._id,
+      description:
+      'Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.',
+      image: 'The_Matrix_Reloaded_digital_release_cover.jpg',
+      price: 11.99,
+      quantity: 20
+    },
+    {
+      name: 'The Matrix Revolutions (2003)',
+      category: categories[4]._id,
+      description:
+      'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.',
+      image: 'The_Matrix_Revolutions_digital_release_cover.jpg',
+      price: 11.99,
+      quantity: 25
+    }
+=======
       name: 'INGLOURIOUS BASTERDS',
       category: categories[3]._id,
       description:

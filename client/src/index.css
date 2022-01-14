@@ -1,6 +1,6 @@
 :root {
   --primary: #283aa3;
-  --secondary: #04b186;
+  --secondary: #fbf4cd;
   --tertiary: #2d6a83;
   --light: #fafafa;
   --dark: #272f32;
@@ -102,9 +102,9 @@ button {
 button:hover {
   background-color: rgba(255, 255, 255, 0.534);
   box-shadow:
-    0 0 60px 30px rgba(255, 255, 255, 0.507),  /* inner white */
-    0 0 100px 60px rgba(255, 0, 255, 0.479), /* middle magenta */
-    0 0 140px 90px rgba(0, 255, 255, 0.5); /* outer cyan */
+    0 0 20px 10px rgba(255, 255, 255, 0.507),  /* inner white */
+    0 0 33px 20px rgba(255, 0, 255, 0.479), /* middle magenta */
+    0 0 45px 30px rgba(0, 255, 255, 0.5); /* outer cyan */
 }
 
 button[disabled] {

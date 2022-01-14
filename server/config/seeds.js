@@ -8,7 +8,7 @@ db.once('open', async () => {
     { name: 'Marvel' },
     { name: 'Star Wars' },
     { name: 'Harry Potter' },
-    { name: 'All Movies' },
+    { name: 'Others' },
   ]);
 
   console.log('categories seeded');
@@ -90,7 +90,7 @@ db.once('open', async () => {
     },
     {
       name: 'The Matrix (1999)',
-      category: categories[3]._id,
+      category: categories[4]._id,
       description:
       'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.',
       image: 'The_Matrix_digital_release_cover.jpg',
@@ -99,7 +99,7 @@ db.once('open', async () => {
     },
     {
       name: 'The Matrix Reloaded (2003)',
-      category: categories[3]._id,
+      category: categories[4]._id,
       description:
       'Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.',
       image: 'The_Matrix_Reloaded_digital_release_cover.jpg',
@@ -108,13 +108,40 @@ db.once('open', async () => {
     },
     {
       name: 'The Matrix Revolutions (2003)',
-      category: categories[3]._id,
+      category: categories[4]._id,
       description:
       'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.',
       image: 'The_Matrix_Revolutions_digital_release_cover.jpg',
       price: 11.99,
-      quantity: 17
-    }
+      quantity: 25
+    },
+    {
+      name: 'INGLOURIOUS BASTERDS',
+      category: categories[3]._id,
+      description:
+        'It is the first year of Germanys occupation of France. Allied officer Lt. Aldo Raine (Brad Pitt) assembles a team of Jewish soldiers to commit violent acts of retribution against the Nazis, including the taking of their scalps. He and his men join forces with Bridget von Hammersmark, a German actress and undercover agent, to bring down the leaders of the Third Reich. Their fates converge with theater owner Shosanna Dreyfus, who seeks to avenge the Nazis execution of her family.',
+      image: 'Inglourious_Basterds_poster.jpg',
+      price: 9.99,
+      quantity: 5
+    },
+    {
+      name: 'THE DARK KNIGHT RISES',
+      category: categories[3]._id,
+      description:
+        'It has been eight years since Batman (Christian Bale), in collusion with Commissioner Gordon (Gary Oldman), vanished into the night. Assuming responsibility for the death of Harvey Dent, Batman sacrificed everything for what he and Gordon hoped would be the greater good. However, the arrival of a cunning cat burglar (Anne Hathaway) and a merciless terrorist named Bane (Tom Hardy) force Batman out of exile and into a battle he may not be able to win.',
+      image: 'darkknight1.jpg',
+      price: 9.99,
+      quantity: 5
+    },
+    {
+      name: 'SKYFALL',
+      category: categories[3]._id,
+      description:
+        'When James Bonds (Daniel Craig) latest assignment goes terribly wrong, it leads to a calamitous turn of events: Undercover agents around the world are exposed, and MI6 is attacked, forcing M (Judi Dench) to relocate the agency. With MI6 now compromised inside and out, M turns to the one man she can trust: Bond. Aided only by a field agent (Naomie Harris), Bond takes to the shadows and follows a trail to Silva (Javier Bardem), a man from Ms past who wants to settle an old score.',
+      image: 'Skyfall.jpg',
+      price: 9.99,
+      quantity: 5
+    },
     
   ]);
 

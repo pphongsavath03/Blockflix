@@ -1,7 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import { MdLocalMovies} from 'react-icons/md';
+import Logo from "../../assets/Untitled.png"
 
 function Nav() {
 
@@ -9,11 +9,6 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Previous Orders
-            </Link>
-          </li>
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
@@ -25,11 +20,6 @@ function Nav() {
     } else {
       return (
         <ul className="flex-row">
-          <li className="link mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
           <li className="link mx-1">
             <Link to="/login">
               Login
@@ -45,7 +35,7 @@ function Nav() {
       <h1>
         <Link to="/">
           <span role="img" aria-label="shopping bag"></span>
-          Block<MdLocalMovies/>Flix
+          BlockFlix
         </Link>
       </h1>
 

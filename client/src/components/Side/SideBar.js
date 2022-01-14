@@ -27,6 +27,31 @@ import "react-pro-sidebar/dist/css/styles.css";
 import "./sidebar.css"
 
 
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="flex-row">
+          <li className="link mx-1">
+            <Link to="/login">
+              Login
+            </Link>
+          </li>
+        </ul>
+      );
+    }
+  }
+
 const SideBar = () => {
   
     //create initial menuCollapse state using useState hook
@@ -63,7 +88,7 @@ const SideBar = () => {
           <SidebarFooter>
             <Menu iconShape="square">
               <MenuItem icon={<BsPencilSquare />}><Link to="/signup"></Link>Signup</MenuItem>
-              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut />}>{showNavigation()} </MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

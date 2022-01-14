@@ -1,7 +1,9 @@
 import React from "react";
 // import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/Untitled.jpg"
 // import Search from "./Searchbar/SearchMovies";
+import "./style.css"
 
 function Nav() {
 
@@ -32,10 +34,10 @@ function Nav() {
 
 
   return (
-    <header className="flex-row px-1">
+    <header className="flex-row px-1 center">
       <h1>
         <Link to="/">
-          <img src={Logo} alt='blockflix logo'/>
+          <img src={Logo} className="photo" alt='blockflix logo'/>
         </Link>
       </h1>
 

@@ -17,8 +17,7 @@ import {
 //import icons from react icons
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { VscSignOut } from "react-icons/vsc";
+import { AiFillFire } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 
 
@@ -56,10 +55,9 @@ const SideBar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
+              <MenuItem icon={<AiFillFire />}><Link to="/Search">Movie Sale</Link></MenuItem>
               <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
-              <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem>
-              <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
-              <MenuItem icon={<VscSignOut />}>logout</MenuItem>
+              {/* <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem> */}
             </Menu>
           </SidebarContent>
           <SidebarFooter>

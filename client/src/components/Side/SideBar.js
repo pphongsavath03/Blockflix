@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Auth from "../../utils/auth";
-import CategoryMenu from "../CategoryMenu/index";
+import { Link } from "react-router-dom";
+// import CategoryMenu from "../CategoryMenu/index";
 
 
 //import react pro sidebar components
@@ -18,6 +19,7 @@ import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import { RiPencilLine } from "react-icons/ri";
 import { VscSignOut } from "react-icons/vsc";
+import { BsPencilSquare } from "react-icons/bs";
 
 
 //import sidebar css from react-pro-sidebar module and our custom css 
@@ -54,14 +56,15 @@ const SideBar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
-              <MenuItem icon={<FaList />}><CategoryMenu/></MenuItem>
-              <MenuItem icon={<FaRegHeart />}>Favourite</MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
+              <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem>
               <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
               <MenuItem icon={<VscSignOut />}>logout</MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
+              <MenuItem icon={<BsPencilSquare />}><Link to="/signup">Signup</Link></MenuItem>
               <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
             </Menu>
           </SidebarFooter>

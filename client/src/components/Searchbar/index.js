@@ -21,7 +21,7 @@ import 'antd/dist/antd.css';
 // import { useDispatch, useSelector } from 'react-redux';
 
 const API_KEY = "bb6d6e88";
-const { Header, Content, Footer } = Layout;
+const { Content} = Layout;
 const { Search } = Input;
 const { Meta } = Card;
 const TextTitle = Typography.Title;

@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import SideBar from "./components/Side/SideBar";
 
-import Categories from "./pages/Categories";
+// import Categories from "./pages/Categories";
 import Search from "./pages/Search";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";

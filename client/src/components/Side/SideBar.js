@@ -16,7 +16,7 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
+import { FaList} from "react-icons/fa";
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import { AiFillFire } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
@@ -56,25 +56,14 @@ const SideBar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
-<<<<<<< HEAD
               <MenuItem icon={<AiFillFire />}><Link to="/Search">Movie Sale</Link></MenuItem>
               <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
-              {/* <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem> */}
-=======
-
-              <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
-              <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem>
-
-              <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
-              <MenuItem icon={<VscSignOut />}>logout</MenuItem>
->>>>>>> a93318fe9801286e432f02220865e00be22d5834
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-
               <MenuItem icon={<BsPencilSquare />}><Link to="/signup">Signup</Link></MenuItem>
-              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}>Logout</a></MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

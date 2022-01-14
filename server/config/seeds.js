@@ -114,8 +114,8 @@ db.once('open', async () => {
       image: 'The_Matrix_Revolutions_digital_release_cover.jpg',
       price: 11.99,
       quantity: 25
-    }
-=======
+    },
+    {
       name: 'INGLOURIOUS BASTERDS',
       category: categories[3]._id,
       description:

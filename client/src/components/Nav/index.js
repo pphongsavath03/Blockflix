@@ -34,8 +34,7 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag"></span>
-          BlockFlix
+          <img src={Logo} alt='blockflix logo'/>
         </Link>
       </h1>
 

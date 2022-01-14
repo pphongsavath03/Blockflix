@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import CategoryMenu from "../CategoryMenu/index";
 
 
+
 //import react pro sidebar components
 import {
   ProSidebar,
@@ -55,13 +56,23 @@ const SideBar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
+<<<<<<< HEAD
               <MenuItem icon={<AiFillFire />}><Link to="/Search">Movie Sale</Link></MenuItem>
               <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
               {/* <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem> */}
+=======
+
+              <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
+              <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem>
+
+              <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
+              <MenuItem icon={<VscSignOut />}>logout</MenuItem>
+>>>>>>> a93318fe9801286e432f02220865e00be22d5834
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
+
               <MenuItem icon={<BsPencilSquare />}><Link to="/signup">Signup</Link></MenuItem>
               <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
             </Menu>

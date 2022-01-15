@@ -13,12 +13,15 @@ import {
     Typography 
 } from 'antd';
 import 'antd/dist/antd.css';
+// import { saveBookIds, getSavedBookIds } from '../../utils/localStorage';
+// import { saveBook, searchGoogleBooks } from '../../utils/API';
+// import {AddButton } from "../../utils/AddButton";
 // import React from "react";
-// import { Link } from "react-router-dom";
-// import { pluralize } from "../../utils/helpers";
-// import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
-// import { idbPromise } from "../../utils/helpers";
-// import { useDispatch, useSelector } from 'react-redux';
+import { useStoreContext } from "../../utils/GlobalState";
+import { pluralize } from "../../utils/helpers";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
+import { idbPromise } from "../../utils/helpers";
+import { useDispatch, useSelector } from 'react-redux';
 
 const API_KEY = "bb6d6e88";
 const { Content} = Layout;
@@ -42,8 +45,17 @@ const SearchBox = ({searchHandler}) => {
     )
 }
 
+
+ 
+
 const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal}) => {
 
+    const state = useSelector((state) => {
+        return state
+      });
+    const dispatch = useDispatch();
+
+    const { cart } = state;
     const clickHandler = () => {
 
         // Display Modal and Loading Icon
@@ -60,6 +72,29 @@ const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Act
         .catch(({message}) => {
             DetailRequest(false);
         })
+    }
+
+    const AddButton = () => {
+        const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+        if (itemInCart) {
+          dispatch({
+            type: UPDATE_CART_QUANTITY,
+            _id: _id,
+            purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+          });
+          idbPromise('cart', 'put', {
+            ...itemInCart,
+            purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+          });
+        } else {
+          dispatch({
+            type: ADD_TO_CART,
+            product: { ...item, purchaseQuantity: 1 }
+          });
+          idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+        }
+
+
     }
 
 
@@ -84,7 +119,7 @@ const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Act
                         <Col>
                             <Tag color="magenta">{Type}</Tag>
                         </Col>
-                        <button>Add to cart</button>
+                        <button onClick={AddButton()} >Add to cart</button>
                     </Row>
                 </Card>
             </div>
@@ -135,7 +170,7 @@ function SearchMovies() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [q, setQuery] = useState('batman');
+    const [q, setQuery] = useState('Batman');
     const [activateModal, setActivateModal] = useState(false);
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);

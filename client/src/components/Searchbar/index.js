@@ -45,10 +45,7 @@ const SearchBox = ({searchHandler}) => {
     )
 }
 
-
- 
-
-const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal}) => {
+const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailRequest, ActivateModal}) => {
 
     const state = useSelector((state) => {
         return state
@@ -119,7 +116,8 @@ const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Act
                         <Col>
                             <Tag color="magenta">{Type}</Tag>
                         </Col>
-                        <button onClick={AddButton()} >Add to cart</button>
+                        ${price}.99
+                        <button>Add to cart</button>
                     </Row>
                 </Card>
             </div>
@@ -190,7 +188,9 @@ function SearchMovies() {
                 setError(response.Error);
             }
             else {
-                setData(response.Search);
+                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 100)}});
+                console.log(searchResults);
+                setData(searchResults);
             }
 
             setLoading(false);

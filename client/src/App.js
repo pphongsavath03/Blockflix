@@ -40,6 +40,7 @@ function App() {
         <div>
           <Provider store={store}>
           <Nav />
+          <div className="mainBody">
           <SideBar/>
           <Switch>
           {/* <Route exact path='/' component={SearchMovies} /> */}
@@ -53,8 +54,10 @@ function App() {
             <Route exact path="/success" component={Success} />
             <Route component={NoMatch} />
           </Switch>
+          </div>
           </Provider>
-        </div>
+          </div>
+       
       </Router>
     </ApolloProvider>
 

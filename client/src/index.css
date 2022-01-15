@@ -145,6 +145,12 @@ input:focus {
   margin-right: auto;
 }
 
+.mainBody {
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+}
+
 .flex-row {
   display: flex;
   flex-wrap: wrap;

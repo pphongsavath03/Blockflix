@@ -13,9 +13,9 @@
 This appliation allows users to search for movies and shop by adding to cart. 
 
 ## Technologies
-React-front end
-GraphQL with Node.js and Express.js server
-MongoDB- database
+React-front end 
+GraphQL with Node.js and Express.js server 
+MongoDB- database 
 OMBb API-RESTful web service to get movie info 
 
 ## Usage
@@ -30,8 +30,8 @@ The side bar allows gives user access to browse popular movies and their order h
 Licensed under [MIT license](LICENSE). 
 
 ## Collaborators
-Phon Phongsavath
-Anthony Korneagay Jr
-Cameron White
-Samira Abdalla
-Jonathan Taylor
+Phon Phongsavath 
+Anthony Korneagay Jr 
+Cameron White 
+Samira Abdalla 
+Jonathan Taylor 

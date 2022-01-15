@@ -16,10 +16,9 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
+import { FaList} from "react-icons/fa";
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { VscSignOut } from "react-icons/vsc";
+import { AiFillFire } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 
 
@@ -27,6 +26,31 @@ import { BsPencilSquare } from "react-icons/bs";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./sidebar.css"
 
+
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="flex-row">
+          <li className="link mx-1">
+            <Link to="/login">
+              Login
+            </Link>
+          </li>
+        </ul>
+      );
+    }
+  }
 
 const SideBar = () => {
   
@@ -56,20 +80,15 @@ const SideBar = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem active={true} icon={<FiHome />}><a href="/">Home</a></MenuItem>
-
-              <MenuItem icon={<FaList />}><Link to="/orderHistory">Order History</Link></MenuItem>
-              <MenuItem icon={<FaRegHeart />}><Link to="/categories">Categories</Link></MenuItem>
-
-              <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
-              <MenuItem icon={<VscSignOut />}>logout</MenuItem>
+              <MenuItem active={true} icon={<FiHome />}><a href="/"></a>Home</MenuItem>
+              <MenuItem icon={<AiFillFire />}><Link to="/Search"></Link>Movie Sale</MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/orderHistory"></Link>Order History</MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-
-              <MenuItem icon={<BsPencilSquare />}><Link to="/signup">Signup</Link></MenuItem>
-              <MenuItem icon={<FiLogOut />}><a href="/" onClick={() => Auth.logout()}></a>Logout</MenuItem>
+              <MenuItem icon={<BsPencilSquare />}><Link to="/signup"></Link>Signup</MenuItem>
+              <MenuItem icon={<FiLogOut />}>{showNavigation()} </MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

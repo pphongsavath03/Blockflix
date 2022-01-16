@@ -89,33 +89,6 @@ db.once('open', async () => {
       quantity: 5
     },
     {
-      name: 'The Matrix (1999)',
-      category: categories[4]._id,
-      description:
-      'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.',
-      image: 'The_Matrix_digital_release_cover.jpg',
-      price: 11.99,
-      quantity: 15
-    },
-    {
-      name: 'The Matrix Reloaded (2003)',
-      category: categories[4]._id,
-      description:
-      'Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.',
-      image: 'The_Matrix_Reloaded_digital_release_cover.jpg',
-      price: 11.99,
-      quantity: 20
-    },
-    {
-      name: 'The Matrix Revolutions (2003)',
-      category: categories[4]._id,
-      description:
-      'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.',
-      image: 'The_Matrix_Revolutions_digital_release_cover.jpg',
-      price: 11.99,
-      quantity: 25
-    },
-    {
       name: 'INGLOURIOUS BASTERDS',
       category: categories[3]._id,
       description:

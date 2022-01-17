@@ -31,7 +31,7 @@ function Signup(props) {
   return (
     <div className="container my-1">
       <Link to="/login">
-        ← Go to Login
+        Back to Login
       </Link>
 
       <h2>Signup</h2>

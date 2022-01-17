@@ -12,6 +12,7 @@ import {
     Modal, 
     Typography 
 } from 'antd';
+import 'antd/dist/antd.css'
 // import { saveBookIds, getSavedBookIds } from '../../utils/localStorage';
 // import { saveBook, searchGoogleBooks } from '../../utils/API';
 // import {AddButton } from "../../utils/AddButton";

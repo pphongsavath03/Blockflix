@@ -42,7 +42,6 @@ function ProductItem(item) {
     image,
     name,
     _id,
-    price,
     quantity
   } = item;
 

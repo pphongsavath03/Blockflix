@@ -12,13 +12,12 @@ import {
     Modal, 
     Typography 
 } from 'antd';
-import 'antd/dist/antd.css';
 // import { saveBookIds, getSavedBookIds } from '../../utils/localStorage';
 // import { saveBook, searchGoogleBooks } from '../../utils/API';
 // import {AddButton } from "../../utils/AddButton";
 // import React from "react";
-import { useStoreContext } from "../../utils/GlobalState";
-import { pluralize } from "../../utils/helpers";
+// import { useStoreContext } from "../../utils/GlobalState";
+// import { pluralize } from "../../utils/helpers";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
 import { idbPromise } from "../../utils/helpers";
 import { useDispatch, useSelector } from 'react-redux';
@@ -71,28 +70,22 @@ const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailReque
         })
     }
 
+    
+
     const AddButton = () => {
-        const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-        if (itemInCart) {
-          dispatch({
-            type: UPDATE_CART_QUANTITY,
-            _id: _id,
-            purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-          });
-          idbPromise('cart', 'put', {
-            ...itemInCart,
-            purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-          });
-        } else {
-          dispatch({
-            type: ADD_TO_CART,
-            product: { ...item, purchaseQuantity: 1 }
-          });
-          idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+        let name = Title;
+        let cartItem = {name, price}
+        if (cartItem){
+            dispatch({
+              type: ADD_TO_CART,
+              product: { ...cartItem, purchaseQuantity: 1 }
+            });
+          }
+        console.log(cartItem)
         }
 
 
-    }
+    
 
 
     return (
@@ -116,10 +109,10 @@ const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailReque
                         <Col>
                             <Tag color="magenta">{Type}</Tag>
                         </Col>
-                        ${price}.99
-                        <button>Add to cart</button>
+                        ${price}
                     </Row>
                 </Card>
+                <button onClick={AddButton}>Out of Stock</button>
             </div>
         </Col>
     )
@@ -188,7 +181,7 @@ function SearchMovies() {
                 setError(response.Error);
             }
             else {
-                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 100)}});
+                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 30)+5}});
                 console.log(searchResults);
                 setData(searchResults);
             }
@@ -202,7 +195,15 @@ function SearchMovies() {
 
     }, [q]);
 
+    // let item = detail;
+
+    // const AddButton = () => {
+    //     const cartItem = item.find();      
+    //     console.log(itemInCart)
+    // }
     
+
+
     return (
         <div className="App">
             <Layout className="layout">
@@ -232,6 +233,7 @@ function SearchMovies() {
                                 />
                             ))}
                         </Row>
+                        
                     </div>
                     <Modal
                         title='Detail'
@@ -245,6 +247,7 @@ function SearchMovies() {
                             (<MovieDetail {...detail} />) :
                             (<Loader />)
                         }
+                        {/* <button onClick={AddButton}>Press me</button> */}
                     </Modal>
                 </Content>
             </Layout>

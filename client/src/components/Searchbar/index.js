@@ -12,13 +12,15 @@ import {
     Modal, 
     Typography 
 } from 'antd';
-import 'antd/dist/antd.css';
+// import { saveBookIds, getSavedBookIds } from '../../utils/localStorage';
+// import { saveBook, searchGoogleBooks } from '../../utils/API';
+// import {AddButton } from "../../utils/AddButton";
 // import React from "react";
-// import { Link } from "react-router-dom";
+// import { useStoreContext } from "../../utils/GlobalState";
 // import { pluralize } from "../../utils/helpers";
-// import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
-// import { idbPromise } from "../../utils/helpers";
-// import { useDispatch, useSelector } from 'react-redux';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
+import { idbPromise } from "../../utils/helpers";
+import { useDispatch, useSelector } from 'react-redux';
 
 const API_KEY = "bb6d6e88";
 const { Content} = Layout;
@@ -44,6 +46,12 @@ const SearchBox = ({searchHandler}) => {
 
 const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailRequest, ActivateModal}) => {
 
+    const state = useSelector((state) => {
+        return state
+      });
+    const dispatch = useDispatch();
+
+    const { cart } = state;
     const clickHandler = () => {
 
         // Display Modal and Loading Icon
@@ -61,6 +69,23 @@ const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailReque
             DetailRequest(false);
         })
     }
+
+    
+
+    const AddButton = () => {
+        let name = Title;
+        let cartItem = {name, price}
+        if (cartItem){
+            dispatch({
+              type: ADD_TO_CART,
+              product: { ...cartItem, purchaseQuantity: 1 }
+            });
+          }
+        console.log(cartItem)
+        }
+
+
+    
 
 
     return (
@@ -84,10 +109,10 @@ const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailReque
                         <Col>
                             <Tag color="magenta">{Type}</Tag>
                         </Col>
-                        ${price}.99
-                        <button>Add to cart</button>
+                        ${price}
                     </Row>
                 </Card>
+                <button onClick={AddButton}>Out of Stock</button>
             </div>
         </Col>
     )
@@ -136,7 +161,7 @@ function SearchMovies() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [q, setQuery] = useState('batman');
+    const [q, setQuery] = useState('Batman');
     const [activateModal, setActivateModal] = useState(false);
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);
@@ -156,7 +181,7 @@ function SearchMovies() {
                 setError(response.Error);
             }
             else {
-                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 100)}});
+                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 30)+5}});
                 console.log(searchResults);
                 setData(searchResults);
             }
@@ -170,7 +195,15 @@ function SearchMovies() {
 
     }, [q]);
 
+    // let item = detail;
+
+    // const AddButton = () => {
+    //     const cartItem = item.find();      
+    //     console.log(itemInCart)
+    // }
     
+
+
     return (
         <div className="App">
             <Layout className="layout">
@@ -200,6 +233,7 @@ function SearchMovies() {
                                 />
                             ))}
                         </Row>
+                        
                     </div>
                     <Modal
                         title='Detail'
@@ -213,6 +247,7 @@ function SearchMovies() {
                             (<MovieDetail {...detail} />) :
                             (<Loader />)
                         }
+                        {/* <button onClick={AddButton}>Press me</button> */}
                     </Modal>
                 </Content>
             </Layout>

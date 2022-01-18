@@ -32,7 +32,7 @@ const TextTitle = Typography.Title;
 const SearchBox = ({searchHandler}) => {
     return (
         <Row>
-            <Col span={12} offset={6}>
+            <Col xs={16} md={12}  offset={6}>
                 <Search
                     placeholder="enter movie, series, episode name"
                     enterButton="Search"
@@ -212,7 +212,7 @@ function SearchMovies() {
                         <SearchBox searchHandler={setQuery} />
                         <br />
                         
-                        <Row gutter={16} type="flex" justify="center">
+                        <Row gutter={8} type="flex" wrap="true" justify="space-around">
                             { loading &&
                                 <Loader />
                             }
@@ -224,6 +224,7 @@ function SearchMovies() {
                             }
                             
                             { data !== null && data.length > 0 && data.map((result, index) => (
+                                <Col>
                                 <ColCardBox 
                                     ShowDetail={setShowDetail} 
                                     DetailRequest={setDetailRequest}
@@ -231,6 +232,7 @@ function SearchMovies() {
                                     key={index} 
                                     {...result} 
                                 />
+                                </Col>
                             ))}
                         </Row>
                         

@@ -44,7 +44,7 @@ import "./sidebar.css"
         <ul className="flex-row">
           <li className="link mx-1">
             <Link to="/login">
-              Login
+              Login/Signup
             </Link>
           </li>
         </ul>
@@ -87,7 +87,7 @@ const SideBar = () => {
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<BsPencilSquare />}><Link to="/signup"></Link>Signup</MenuItem>
+              {/* <MenuItem icon={<BsPencilSquare />}><Link to="/signup"></Link>Signup</MenuItem> */}
               <MenuItem icon={<FiLogOut />}>{showNavigation()} </MenuItem>
             </Menu>
           </SidebarFooter>

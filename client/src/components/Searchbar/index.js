@@ -10,6 +10,7 @@ import {
     Spin, 
     Alert, 
     Modal, 
+    Button,
     Typography 
 } from 'antd';
 import 'antd/dist/antd.css';
@@ -25,6 +26,8 @@ const { Content} = Layout;
 const { Search } = Input;
 const { Meta } = Card;
 const TextTitle = Typography.Title;
+
+
 
 
 const SearchBox = ({searchHandler}) => {
@@ -63,11 +66,12 @@ const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Act
     }
 
 
-    return (
-        <Col style={{margin: '20px 0'}} className="gutter-row" span={4}>
+    return ( 
+
+        <Col style={{margin: '20px 0'}} flex className="gutter-row" span={4}>
             <div className="gutter-box">
                 <Card
-                    style={{ width: 180,  }}
+                    style={{ width: 200,  }}
                     cover={
                         <img
                             alt={Title}
@@ -79,23 +83,29 @@ const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Act
                     <Meta
                             title={Title}
                             description={false}
+                            
                     />
-                    <Row style={{marginTop: '10px'}} className="gutter-row">
+                    <Row style={{marginTop: '10px'}} flex justify='space-around' className="gutter-row">
                         <Col>
-                            <Tag color="magenta">{Type}</Tag>
+                            <Tag style={{ borderRadius:'5px'}} color="magenta">{Type}</Tag>
                         </Col>
-                        <button>Add to cart</button>
+                                          
                     </Row>
                 </Card>
             </div>
+            <Col offset={24}>
+              <Button type='primary'  style={{marginTop: '3px',  borderRadius:'3px', marginLeft: '15px'}} >Add to cart</Button>
+            </Col>
         </Col>
+
+
     )
 }
 
 const MovieDetail = ({Title, Poster, imdbRating, Rated, Runtime, Genre, Plot}) => {
     return (
-        <Row>
-            <Col span={11}>
+        <Row style={{marginLeft:'50px'}} type="flex" justify='space-between'>
+            <Col xs={9} md={10}>
                 <img 
                     src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster} 
                     alt={Title} 
@@ -103,9 +113,9 @@ const MovieDetail = ({Title, Poster, imdbRating, Rated, Runtime, Genre, Plot}) =
             </Col>
             <Col span={13}>
                 <Row>
-                    <Col span={21}>
+                    <Col span={18}>
                         <TextTitle level={4}>{Title}</TextTitle></Col>
-                    <Col span={3} style={{textAlign:'right'}}>
+                    <Col span={4} style={{textAlign:'right'}}>
                         <TextTitle level={4}><span style={{color: '#41A8F8'}}>{imdbRating}</span></TextTitle>
                     </Col>
                 </Row>
@@ -133,6 +143,7 @@ const Loader = () => (
 function SearchMovies() {
 
     const [data, setData] = useState(null);
+    const [price, setPricing] = useState(null)
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [q, setQuery] = useState('batman');
@@ -177,6 +188,7 @@ function SearchMovies() {
                         <br />
                         
                         <Row gutter={8} type="flex" wrap="true" justify="space-around">
+                           
                             { loading &&
                                 <Loader />
                             }
@@ -188,16 +200,16 @@ function SearchMovies() {
                             }
                             
                             { data !== null && data.length > 0 && data.map((result, index) => (
-                                <Col>
+                              <Col key={index} >
                                 <ColCardBox 
                                     ShowDetail={setShowDetail} 
                                     DetailRequest={setDetailRequest}
                                     ActivateModal={setActivateModal}
-                                    key={index} 
                                     {...result} 
                                 />
                                 </Col>
                             ))}
+
                         </Row>
                     </div>
                     <Modal

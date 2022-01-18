@@ -19,8 +19,8 @@ import 'antd/dist/antd.css'
 // import React from "react";
 // import { useStoreContext } from "../../utils/GlobalState";
 // import { pluralize } from "../../utils/helpers";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
-import { idbPromise } from "../../utils/helpers";
+import { ADD_TO_CART } from '../../utils/actions';
+// import { idbPromise } from "../../utils/helpers";
 import { useDispatch, useSelector } from 'react-redux';
 
 const API_KEY = "bb6d6e88";

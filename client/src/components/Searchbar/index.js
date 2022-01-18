@@ -12,9 +12,13 @@ import {
   Button,
   Typography,
 } from 'antd';
-import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
-import { idbPromise } from "../../utils/helpers";
-import { useDispatch, useSelector } from 'react-redux';
+import 'antd/dist/antd.css';
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import { pluralize } from "../../utils/helpers";
+// import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
+// import { idbPromise } from "../../utils/helpers";
+// import { useDispatch, useSelector } from 'react-redux';
 
 const API_KEY = 'bb6d6e88';
 const { Content } = Layout;
@@ -146,85 +150,6 @@ const MovieDetail = ({
             <Tag>{Genre}</Tag>
           </Col>
         </Row>
-    )
-}
-
-const ColCardBox = ({Title, imdbID, Poster, Type, price, ShowDetail, DetailRequest, ActivateModal}) => {
-
-    const state = useSelector((state) => {
-        return state
-      });
-    const dispatch = useDispatch();
-
-    const { cart } = state;
-    const clickHandler = () => {
-
-        // Display Modal and Loading Icon
-        ActivateModal(true);
-        DetailRequest(true);
-
-        fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`)
-        .then(resp => resp)
-        .then(resp => resp.json())
-        .then(response => {
-            DetailRequest(false);
-            ShowDetail(response);
-        })
-        .catch(({message}) => {
-            DetailRequest(false);
-        })
-    }
-
-    
-
-    const AddButton = () => {
-        let name = Title;
-        let cartItem = {name, price}
-        if (cartItem){
-            dispatch({
-              type: ADD_TO_CART,
-              product: { ...cartItem, purchaseQuantity: 1 }
-            });
-          }
-        console.log(cartItem)
-        }
-
-
-    
-
-
-    return (
-        <Col style={{margin: '20px 0'}} className="gutter-row" span={4}>
-            <div className="gutter-box">
-                <Card
-                    style={{ width: 180,  }}
-                    cover={
-                        <img
-                            alt={Title}
-                            src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
-                        />
-                    }
-                    onClick={() => clickHandler()}
-                >
-                    <Meta
-                            title={Title}
-                            description={false}
-                    />
-                    <Row style={{marginTop: '10px'}} className="gutter-row">
-                        <Col>
-                            <Tag color="magenta">{Type}</Tag>
-                        </Col>
-                        ${price}
-                    </Row>
-                </Card>
-                <button onClick={AddButton}>Out of Stock</button>
-            </div>
-        </Col>
-    )
-}
-
-const MovieDetail = ({Title, Poster, imdbRating, Rated, Runtime, Genre, Plot}) => {
-    return (
         <Row>
           <Col>{Plot}</Col>
         </Row>
@@ -317,106 +242,6 @@ function SearchMovies() {
       </Layout>
     </div>
   );
-
-
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [q, setQuery] = useState('Batman');
-    const [activateModal, setActivateModal] = useState(false);
-    const [detail, setShowDetail] = useState(false);
-    const [detailRequest, setDetailRequest] = useState(false);
-
-
-    useEffect(() => {
-
-        setLoading(true);
-        setError(null);
-        setData(null);
-
-        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
-        .then(resp => resp)
-        .then(resp => resp.json())
-        .then(response => {
-            if (response.Response === 'False') {
-                setError(response.Error);
-            }
-            else {
-                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 30)+5}});
-                console.log(searchResults);
-                setData(searchResults);
-            }
-
-            setLoading(false);
-        })
-        .catch(({message}) => {
-            setError(message);
-            setLoading(false);
-        })
-
-    }, [q]);
-
-    // let item = detail;
-
-    // const AddButton = () => {
-    //     const cartItem = item.find();      
-    //     console.log(itemInCart)
-    // }
-    
-
-
-    return (
-        <div className="App">
-            <Layout className="layout">
-                <Content style={{ padding: '25 50px' }}>
-                    <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-                        <SearchBox searchHandler={setQuery} />
-                        <br />
-                        
-                        <Row gutter={8} type="flex" wrap="true" justify="space-around">
-                            { loading &&
-                                <Loader />
-                            }
-
-                            { error !== null &&
-                                <div style={{margin: '20px 0'}}>
-                                    <Alert message={error} type="error" />
-                                </div>
-                            }
-                            
-                            { data !== null && data.length > 0 && data.map((result, index) => (
-                                <Col>
-                                <ColCardBox 
-                                    ShowDetail={setShowDetail} 
-                                    DetailRequest={setDetailRequest}
-                                    ActivateModal={setActivateModal}
-                                    key={index} 
-                                    {...result} 
-                                />
-                                </Col>
-                            ))}
-                        </Row>
-                        
-                    </div>
-                    <Modal
-                        title='Detail'
-                        centered
-                        visible={activateModal}
-                        onCancel={() => setActivateModal(false)}
-                        footer={null}
-                        width={800}
-                        >
-                        { detailRequest === false ?
-                            (<MovieDetail {...detail} />) :
-                            (<Loader />)
-                        }
-                        {/* <button onClick={AddButton}>Press me</button> */}
-                    </Modal>
-                </Content>
-            </Layout>
-        </div>
-    );
-
 }
 
 export default SearchMovies;

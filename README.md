@@ -19,7 +19,7 @@ MongoDB- database
 OMBb API-RESTful web service to get movie info 
 
 ## Usage
-You can access the deployed application here: . 
+You can access the deployed application here: http://tranquil-sea-82088.herokuapp.com/. 
 
 After navigating to the application, users open to the home page. 
 ![Home Page](assets/HomePage.png) 

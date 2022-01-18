@@ -67,15 +67,15 @@ const SideBar = () => {
     <>
       <div id="header">
           {/* collapsed props to change menu size using menucollapse state */}
-        <ProSidebar collapsed={menuCollapse}>
+        <ProSidebar>
           <SidebarHeader>
             <div className="closemenu" onClick={menuIconClick}>
-                {/* changing menu collapse icon on click */}
+                {/* changing menu collapse icon on click
               {menuCollapse ? (
                 <FiArrowRightCircle/>
               ) : (
                 <FiArrowLeftCircle/>
-              )}
+              )} */}
             </div>
           </SidebarHeader>
           <SidebarContent>

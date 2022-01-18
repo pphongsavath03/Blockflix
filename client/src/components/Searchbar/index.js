@@ -12,7 +12,14 @@ import {
     Button,
     Typography,
 } from 'antd';
+
+import 'antd/dist/antd.css'
+
+import { ADD_TO_CART } from '../../utils/actions';
+// import { idbPromise } from "../../utils/helpers";
+import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.css';
+
 
 const API_KEY = 'bb6d6e88';
 const { Content } = Layout;

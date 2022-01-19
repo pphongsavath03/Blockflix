@@ -14,10 +14,6 @@ import {
 } from 'antd';
 
 import 'antd/dist/antd.css'
-
-import { ADD_TO_CART } from '../../utils/actions';
-// import { idbPromise } from "../../utils/helpers";
-import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.css';
 
 
@@ -58,7 +54,7 @@ const ColCardBox = ({
         ActivateModal(true);
         DetailRequest(true);
 
-        fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`)
+        fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`)
             .then((resp) => resp)
             .then((resp) => resp.json())
             .then((response) => {

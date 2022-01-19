@@ -46,6 +46,7 @@ const ColCardBox = ({
     Title,
     imdbID,
     Poster,
+    price,
     Type,
     ShowDetail,
     DetailRequest,
@@ -69,34 +70,29 @@ const ColCardBox = ({
     };
 
     return (
-        <Col style={{ margin: '20px 0' }} flex className="gutter-row" span={4}>
+        <Col style={{margin: '20px 0'}} className="gutter-row" span={4}>
             <div className="gutter-box">
                 <Card
-                    style={{ width: 200 }}
+                    style={{ width: 180,  }}
                     cover={
                         <img
                             alt={Title}
-                            src={
-                                Poster === 'N/A'
-                                    ? 'https://placehold.it/198x264&text=Image+Not+Found'
-                                    : Poster
-                            }
+                            src={Poster === 'N/A' ? 'https://placehold.it/198x264&text=Image+Not+Found' : Poster}
                         />
                     }
                     onClick={() => clickHandler()}
                 >
-                    <Meta title={Title} description={false} />
-                    <Row
-                        style={{ marginTop: '10px' }}
-                        flex
-                        justify="space-around"
-                        className="gutter-row"
-                    >
+                    <Meta
+                            title={Title}
+                            description={false}
+                    />
+                    <Row style={{marginTop: '10px'}} className="gutter-row">
                         <Col>
-                            <Tag style={{ borderRadius: '5px' }} color="magenta">
+                        <Tag style={{ borderRadius: '5px' }} color="magenta">
                                 {Type}
-                            </Tag>
-                        </Col>
+                        </Tag>                        
+                    </Col>
+                        ${price}
                     </Row>
                 </Card>
             </div>
@@ -109,8 +105,8 @@ const ColCardBox = ({
                 </Button>
             </Col>
         </Col>
-    );
-};
+    )
+}
 
 const MovieDetail = ({
     Title,
@@ -187,8 +183,10 @@ function SearchMovies() {
                 if (response.Response === 'False') {
                     setError(response.Error);
                 } else {
-                    setData(response.Search);
-                }
+                setData(response.Search);
+                let searchResults = response.Search.map(item => {return {...item, price: Math.floor(Math.random() * 30)}});
+                console.log(searchResults);
+                setData(searchResults);                }
 
                 setLoading(false);
             })

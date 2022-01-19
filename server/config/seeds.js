@@ -31,7 +31,7 @@ db.once('open', async () => {
         'Scientist Bruce Banner (Edward Norton) desperately seeks a cure for the gamma radiation that contaminated his cells and turned him into The Hulk. Cut off from his true love Betty Ross (Liv Tyler) and forced to hide from his nemesis, Gen. Thunderbolt Ross (William Hurt), Banner soon comes face-to-face with a new threat: a supremely powerful enemy known as The Abomination (Tim Roth).',
       image: 'hulk1.jpg',
       category: categories[0]._id,
-      price: 9.99,
+      price: 5.99,
       quantity: 10
     },
     {
@@ -40,7 +40,7 @@ db.once('open', async () => {
       description:
         'A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.',
       image: 'ironman1.jpg',
-      price: 9.99,
+      price: 5.99,
       quantity: 10
     },
     {
@@ -49,7 +49,7 @@ db.once('open', async () => {
       description:
         'With the world now aware that he is Iron Man, billionaire inventor Tony Stark (Robert Downey Jr.) faces pressure from all sides to share his technology with the military. He is reluctant to divulge the secrets of his armored suit, fearing the information will fall into the wrong hands. With Pepper Potts (Gwyneth Paltrow) and "Rhodey" Rhodes (Don Cheadle) by his side, Tony must forge new alliances and confront a powerful new enemy.',
       image: 'ironman2.jpg',
-      price: 9.99,
+      price: 5.99,
       quantity: 15
     },
     {
@@ -58,7 +58,7 @@ db.once('open', async () => {
       description:
         'Thirty years after the defeat of the Galactic Empire, the galaxy faces a new threat from the evil Kylo Ren (Adam Driver) and the First Order. When a defector named Finn crash-lands on a desert planet, he meets Rey (Daisy Ridley), a tough scavenger whose droid contains a top-secret map. Together, the young duo joins forces with Han Solo (Harrison Ford) to make sure the Resistance receives the intelligence concerning the whereabouts of Luke Skywalker (Mark Hamill), the last of the Jedi Knights.',
       image: 'swforceawakens.jpg',
-      price: 9.99,
+      price: 5.99,
       quantity: 15
     },
     {
@@ -67,7 +67,7 @@ db.once('open', async () => {
       description:
         'The Imperial Forces -- under orders from cruel Darth Vader (David Prowse) -- hold Princess Leia (Carrie Fisher) hostage, in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker (Mark Hamill) and Han Solo (Harrison Ford), captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 (Kenny Baker) and C-3PO (Anthony Daniels) to rescue the beautiful princess, help the Rebel Alliance, and restore freedom and justice to the Galaxy.',
       image: 'starwarsiv.jpg',
-      price: 9.99,
+      price: 5.99,
       quantity: 13
     },
     {

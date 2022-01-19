@@ -12,13 +12,22 @@ import {
     Button,
     Typography,
 } from 'antd';
+
+import 'antd/dist/antd.css'
+
+import { ADD_TO_CART } from '../../utils/actions';
+// import { idbPromise } from "../../utils/helpers";
+import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.css';
+
 
 const API_KEY = 'bb6d6e88';
 const { Content } = Layout;
 const { Search } = Input;
 const { Meta } = Card;
 const TextTitle = Typography.Title;
+
+
 
 const SearchBox = ({ searchHandler }) => {
     return (
@@ -173,7 +182,7 @@ function SearchMovies() {
         setError(null);
         setData(null);
 
-        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
+        fetch(`https://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
             .then((resp) => resp)
             .then((resp) => resp.json())
             .then((response) => {

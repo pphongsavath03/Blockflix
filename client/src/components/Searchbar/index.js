@@ -27,6 +27,8 @@ const { Search } = Input;
 const { Meta } = Card;
 const TextTitle = Typography.Title;
 
+
+
 const SearchBox = ({ searchHandler }) => {
     return (
         <Row>
@@ -176,7 +178,7 @@ function SearchMovies() {
         setError(null);
         setData(null);
 
-        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
+        fetch(`https://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
             .then((resp) => resp)
             .then((resp) => resp.json())
             .then((response) => {
